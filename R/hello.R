@@ -1,14 +1,14 @@
-#' TestDCCRpkg
+#' BarcodeMatcher
 #' 
-#' This function is used to test on DCCRpkg
+#' My Barcode Matcher
 #' 
 #' @docType package
 #' @author clintko 
 #' @import Rcpp
 #' @importFrom Rcpp evalCpp
-#' @useDynLib TestDCCRpkg
-#' @name TestDCCRpkg
-NULL  
+#' @useDynLib BarcodeMatcher
+#' @name BarcodeMatcher
+NULL 
 
 #' Hello world. Basic Test function
 #'
@@ -16,7 +16,6 @@ NULL
 #' @examples
 #' hello()
 hello = function() {
-    library(Rcpp)
     print("hello")
     print(timesTwo(c(1,2,3)))
 }
