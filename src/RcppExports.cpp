@@ -5,6 +5,18 @@
 
 using namespace Rcpp;
 
+// hamming_filter_wrapper
+void hamming_filter_wrapper(StringVector barcodes, std::string& read, const int threshold);
+RcppExport SEXP _BarcodeMatcher_hamming_filter_wrapper(SEXP barcodesSEXP, SEXP readSEXP, SEXP thresholdSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< StringVector >::type barcodes(barcodesSEXP);
+    Rcpp::traits::input_parameter< std::string& >::type read(readSEXP);
+    Rcpp::traits::input_parameter< const int >::type threshold(thresholdSEXP);
+    hamming_filter_wrapper(barcodes, read, threshold);
+    return R_NilValue;
+END_RCPP
+}
 // timesTwo
 NumericVector timesTwo(NumericVector x);
 RcppExport SEXP _BarcodeMatcher_timesTwo(SEXP xSEXP) {
@@ -18,6 +30,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_BarcodeMatcher_hamming_filter_wrapper", (DL_FUNC) &_BarcodeMatcher_hamming_filter_wrapper, 3},
     {"_BarcodeMatcher_timesTwo", (DL_FUNC) &_BarcodeMatcher_timesTwo, 1},
     {NULL, NULL, 0}
 };
